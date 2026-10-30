@@ -1,100 +1,176 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pizzaria — Wood-Fired Pizza, Made Simple</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.dark, .dark *));
+
+    @theme {
+      --color-cream: #FDF6E3;
+      --color-charcoal: #1F1B16;
+      --color-tomato: #E63946;
+      --color-basil: #2A9D8F;
+      --font-display: "Georgia", serif;
+    }
+
+    @layer components {
+      .btn-brutal {
+        @apply inline-block px-6 py-3 font-bold border-4 border-charcoal bg-tomato text-cream
+               shadow-[6px_6px_0_0_var(--color-charcoal)]
+               hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px]
+               focus:outline-none focus:ring-4 focus:ring-basil
+               dark:border-cream dark:shadow-[6px_6px_0_0_var(--color-cream)]
+               dark:hover:shadow-none;
+      }
+
+      .card-brutal {
+        @apply border-4 border-charcoal bg-white p-6
+               shadow-[8px_8px_0_0_var(--color-charcoal)]
+               dark:border-cream dark:bg-charcoal dark:shadow-[8px_8px_0_0_var(--color-cream)];
+      }
+    }
+  </style>
 </head>
-<body>
+<body class="bg-cream text-charcoal font-sans antialiased dark:bg-charcoal dark:text-cream">
 
-  <header>
-    <a href="#hero">🍕 Pizzaria</a>
+  <header class="sticky top-0 z-40 border-b-4 border-charcoal bg-cream/95 backdrop-blur dark:border-cream dark:bg-charcoal/95">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-8">
+      <a href="#hero" class="font-display text-2xl font-black tracking-tight md:text-3xl">
+        🍕 Pizzaria
+      </a>
 
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#contact">Contact</a></li>
+      <ul class="hidden gap-6 text-sm font-bold md:flex">
+        <li><a href="#about" class="hover:text-tomato dark:hover:text-tomato">About</a></li>
+        <li><a href="#menu" class="hover:text-tomato dark:hover:text-tomato">Menu</a></li>
+        <li><a href="#contact" class="hover:text-tomato dark:hover:text-tomato">Contact</a></li>
       </ul>
+
+      <button id="theme-toggle" class="btn-brutal !px-3 !py-1.5 text-xs md:text-sm" type="button" aria-label="Toggle dark mode">
+        🌙
+      </button>
     </nav>
   </header>
 
   <main>
 
-    <section id="hero">
-      <h1>Simple pizza. <span>Seriously good.</span></h1>
-      <p>
-        Hawaiian, Ham & Cheese, and Pepperoni — classic favorites, made fresh daily,
-        sized for the whole group, and priced fairly.
+    <section id="hero" class="mx-auto max-w-6xl px-4 pt-16 pb-20 md:px-8 md:pt-24 md:pb-28">
+      <h1 class="font-display text-5xl font-black leading-[1.05] md:text-7xl">
+        Simple pizza.<br />
+        <span class="text-tomato">Seriously good.</span>
+      </h1>
+      <p class="mt-6 max-w-xl text-lg md:text-xl">
+        Hawaiian, Ham & Cheese, and Pepperoni — classic favorites, made fresh daily, sized for the whole group, and priced fairly.
       </p>
-      <a href="#menu">See the menu →</a>
+      <div class="mt-8">
+        <a href="#menu" class="btn-brutal text-base md:text-lg">See the menu →</a>
+      </div>
     </section>
 
-    <section id="about">
-      <h2>About us</h2>
-      <p>
-        Pizzaria is a small family kitchen with one simple belief: great pizza doesn't
-        need to be complicated. We make our dough fresh every morning, top every pie
-        with generous servings of your favorite flavors, and bake it in a wood-fired
-        oven until the edges are crisp. That's it. That's the whole philosophy.
-      </p>
-      <ul>
-        <li><strong>Baked fresh</strong> — Dough made every morning, never frozen.</li>
-        <li><strong>Wood-fired</strong> — 900°F oven, 90-second bake. Crispy edges, soft center.</li>
-        <li><strong>Made for sharing</strong> — Sizes good for one, four, or the whole group.</li>
-      </ul>
+    <section id="about" class="border-t-4 border-charcoal bg-white py-16 dark:border-cream dark:bg-charcoal md:py-24">
+      <div class="mx-auto max-w-6xl px-4 md:px-8">
+        <h2 class="font-display text-3xl font-black md:text-5xl">About us</h2>
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed">
+          Pizzaria is a small family kitchen with one simple belief: great pizza doesn't need to be complicated.
+          We make our dough fresh every morning, top every pie with generous servings of your favorite flavors,
+          and bake it in a wood-fired oven until the edges are crisp. That's it. That's the whole philosophy.
+        </p>
+        <ul class="mt-8 grid gap-4 sm:grid-cols-3">
+          <li class="card-brutal"><strong class="block text-xl">Baked fresh</strong><span class="text-sm">Dough made every morning, never frozen.</span></li>
+          <li class="card-brutal"><strong class="block text-xl">Wood-fired</strong><span class="text-sm">900°F oven, 90-second bake. Crispy edges, soft center.</span></li>
+          <li class="card-brutal"><strong class="block text-xl">Made for sharing</strong><span class="text-sm">Sizes good for one, four, or the whole group.</span></li>
+        </ul>
+      </div>
     </section>
 
-    <section id="menu">
-      <h2>Our menu</h2>
-      <p>Three signature pies. Plus a rotating special every week.</p>
+    <section id="menu" class="py-16 md:py-24">
+      <div class="mx-auto max-w-6xl px-4 md:px-8">
+        <h2 class="font-display text-3xl font-black md:text-5xl">Our menu</h2>
+        <p class="mt-4 max-w-xl text-lg">Three signature pies. Plus a rotating special every week.</p>
 
-      <article>
-        <h3>Hawaiian Pizza</h3>
-        <p>Sweet pineapple chunks, ham, mozzarella, and a touch of tomato sauce.</p>
-        <p>₱199</p>
-      </article>
-
-      <article>
-        <h3>Ham &amp; Cheese</h3>
-        <p>Smoked ham, double mozzarella, cheddar, and tomato sauce.</p>
-        <p>₱199</p>
-      </article>
-
-      <article>
-        <h3>Pepperoni Pizza</h3>
-        <p>Classic pepperoni, mozzarella, tomato sauce, and chili flakes on top.</p>
-        <p>₱199</p>
-      </article>
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+          <article class="card-brutal">
+            <div class="text-5xl">🍍</div>
+            <h3 class="mt-4 font-display text-2xl font-black">Hawaiian Pizza</h3>
+            <p class="mt-2 text-sm">Sweet pineapple chunks, ham, mozzarella, and a touch of tomato sauce.</p>
+            <p class="mt-4 font-bold text-tomato">₱199</p>
+          </article>
+          <article class="card-brutal">
+            <div class="text-5xl">🧀</div>
+            <h3 class="mt-4 font-display text-2xl font-black">Ham &amp; Cheese</h3>
+            <p class="mt-2 text-sm">Smoked ham, double mozzarella, cheddar, and tomato sauce.</p>
+            <p class="mt-4 font-bold text-tomato">₱199</p>
+          </article>
+          <article class="card-brutal">
+            <div class="text-5xl">🍕</div>
+            <h3 class="mt-4 font-display text-2xl font-black">Pepperoni Pizza</h3>
+            <p class="mt-2 text-sm">Classic pepperoni, mozzarella, tomato sauce, and chili flakes on top.</p>
+            <p class="mt-4 font-bold text-tomato">₱199</p>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <section id="contact">
-      <h2>Say hello</h2>
-      <p>Book a table, place an order, or just tell us your favorite pizza.</p>
+    <section id="contact" class="border-t-4 border-charcoal bg-white py-16 dark:border-cream dark:bg-charcoal md:py-24">
+      <div class="mx-auto max-w-3xl px-4 md:px-8">
+        <h2 class="font-display text-3xl font-black md:text-5xl">Say hello</h2>
+        <p class="mt-4 text-lg">Book a table, place an order, or just tell us your favorite pizza.</p>
 
-      <form>
-        <div>
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" required autocomplete="name" />
-        </div>
-        <div>
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required autocomplete="email" />
-        </div>
-        <div>
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
-        </div>
-        <button type="submit">Send message</button>
-      </form>
+        <form class="mt-8 space-y-5" novalidate>
+          <div>
+            <label for="name" class="mb-1 block text-sm font-bold">Name</label>
+            <input
+              id="name" name="name" type="text" required autocomplete="name"
+              class="w-full border-4 border-charcoal bg-cream px-4 py-3 text-charcoal focus:outline-none focus:ring-4 focus:ring-basil dark:border-cream dark:bg-charcoal dark:text-cream"
+              placeholder="Your name"
+            />
+          </div>
+          <div>
+            <label for="email" class="mb-1 block text-sm font-bold">Email</label>
+            <input
+              id="email" name="email" type="email" required autocomplete="email"
+              class="w-full border-4 border-charcoal bg-cream px-4 py-3 text-charcoal focus:outline-none focus:ring-4 focus:ring-basil dark:border-cream dark:bg-charcoal dark:text-cream"
+              placeholder="you@example.com"
+            />
+          </div>
+          <div>
+            <label for="message" class="mb-1 block text-sm font-bold">Message</label>
+            <textarea
+              id="message" name="message" rows="4" required
+              class="w-full border-4 border-charcoal bg-cream px-4 py-3 text-charcoal focus:outline-none focus:ring-4 focus:ring-basil dark:border-cream dark:bg-charcoal dark:text-cream"
+              placeholder="What's on your mind?"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn-brutal">Send message</button>
+        </form>
+      </div>
     </section>
 
   </main>
 
-  <footer>
-    <p>© 2026 Pizzaria. Made with flour, fire, and love.</p>
-    <p>Brgy.12 Hda.Naglo Victorias City · Open 11am–12mn</p>
+  <footer class="border-t-4 border-charcoal bg-cream py-8 dark:border-cream dark:bg-charcoal">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 md:flex-row md:px-8">
+      <p class="text-sm">© 2026 Pizzaria. Made with flour, fire, and love.</p>
+      <p class="text-sm">Brgy.12 Hda.Naglo Victorias City  · Open 11am–12mn</p>
+    </div>
   </footer>
+
+  <script>
+    /* Dark mode toggle with localStorage persistence */
+    const root = document.documentElement;
+    const themeToggle = document.getElementById("theme-toggle");
+
+    const saved = localStorage.getItem("pizzaria-theme");
+    if (saved === "dark") root.classList.add("dark");
+
+    themeToggle.addEventListener("click", () => {
+      root.classList.toggle("dark");
+      localStorage.setItem("pizzaria-theme", root.classList.contains("dark") ? "dark" : "light");
+    });
+  </script>
 
 </body>
 </html>
