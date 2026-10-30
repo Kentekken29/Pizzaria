@@ -3,7 +3,9 @@
 A single-page, neo-brutalist pizza shop site.
 Built with HTML, Tailwind CSS (CDN), JavaScript, GSAP, and ScrollTrigger.
 
-**Live site:** https://YOUR-USERNAME.github.io/pizzaria-landing/
+**Live site:** https://kentekken29.github.io/Pizzaria/
+
+**Repository:** https://github.com/Kentekken29/Pizzaria
 
 ---
 
@@ -46,11 +48,6 @@ Built with HTML, Tailwind CSS (CDN), JavaScript, GSAP, and ScrollTrigger.
 
 ## Tech
 HTML5 · Tailwind CSS v4 (CDN) · JavaScript · GSAP 3.13 + ScrollTrigger
-
----
-
-## Run locally
-Open `index.html` in a browser, or:
 
 ```bash
 python3 -m http.server 8000
