@@ -5,10 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pizzaria — Wood-Fired Pizza, Made Simple</title>
 
+  <!-- Tailwind (CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
   <style type="text/tailwindcss">
     @custom-variant dark (&:where(.dark, .dark *));
 
+    /* Design tokens */
     @theme {
       --color-cream: #FDF6E3;
       --color-charcoal: #1F1B16;
@@ -17,6 +20,7 @@
       --font-display: "Georgia", serif;
     }
 
+    /* Reusable components */
     @layer components {
       .btn-brutal {
         @apply inline-block px-6 py-3 font-bold border-4 border-charcoal bg-tomato text-cream
@@ -35,65 +39,85 @@
     }
   </style>
 </head>
+
 <body class="bg-cream text-charcoal font-sans antialiased dark:bg-charcoal dark:text-cream">
 
-  <div id="scroll-progress" class="fixed top-0 left-0 h-1 w-full bg-tomato z-50 origin-left" style="transform: scaleX(0);"></div>
+  <!-- Scroll progress bar -->
+  <div id="scroll-progress"
+       class="fixed top-0 left-0 h-1 w-full bg-tomato z-50 origin-left"
+       style="transform: scaleX(0);"></div>
 
+  <!-- HEADER -->
   <header class="sticky top-0 z-40 border-b-4 border-charcoal bg-cream/95 backdrop-blur dark:border-cream dark:bg-charcoal/95">
     <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-8">
+
       <a href="#hero" class="font-display text-2xl font-black tracking-tight md:text-3xl">
         🍕 Pizzaria
       </a>
 
       <ul class="hidden gap-6 text-sm font-bold md:flex">
-        <li><a href="#about" class="hover:text-tomato dark:hover:text-tomato">About</a></li>
+        <li><a href="#about"    class="hover:text-tomato dark:hover:text-tomato">About</a></li>
         <li><a href="#services" class="hover:text-tomato dark:hover:text-tomato">Services</a></li>
-        <li><a href="#menu" class="hover:text-tomato dark:hover:text-tomato">Menu</a></li>
-        <li><a href="#contact" class="hover:text-tomato dark:hover:text-tomato">Contact</a></li>
+        <li><a href="#menu"     class="hover:text-tomato dark:hover:text-tomato">Menu</a></li>
+        <li><a href="#contact"  class="hover:text-tomato dark:hover:text-tomato">Contact</a></li>
       </ul>
 
       <div class="flex items-center gap-2">
         <button id="replay-intro" class="btn-brutal !px-3 !py-1.5 text-xs md:text-sm" type="button">
           Replay
         </button>
-        <button id="theme-toggle" class="btn-brutal !px-3 !py-1.5 text-xs md:text-sm" type="button" aria-label="Toggle dark mode">
+        <button id="theme-toggle" class="btn-brutal !px-3 !py-1.5 text-xs md:text-sm" type="button"
+                aria-label="Toggle dark mode">
           🌙
         </button>
       </div>
+
     </nav>
   </header>
 
+  <!-- MAIN -->
   <main>
 
+    <!-- HERO -->
     <section id="hero" class="mx-auto max-w-6xl px-4 pt-16 pb-20 md:px-8 md:pt-24 md:pb-28">
       <h1 class="hero-step font-display text-5xl font-black leading-[1.05] md:text-7xl">
         Simple pizza.<br />
         <span class="text-tomato">Seriously good.</span>
       </h1>
       <p class="hero-step mt-6 max-w-xl text-lg md:text-xl">
-        Hawaiian, Ham & Cheese, and Pepperoni — classic favorites, made fresh daily, sized for the whole group, and priced fairly.
+        Hawaiian, Ham &amp; Cheese, and Pepperoni — made fresh daily, sized for the whole group, priced fairly.
       </p>
       <div class="hero-step mt-8">
         <a href="#menu" class="btn-brutal text-base md:text-lg">See the menu →</a>
       </div>
     </section>
 
+    <!-- ABOUT -->
     <section id="about" class="border-t-4 border-charcoal bg-white py-16 dark:border-cream dark:bg-charcoal md:py-24">
       <div class="reveal mx-auto max-w-6xl px-4 md:px-8">
         <h2 class="font-display text-3xl font-black md:text-5xl">About us</h2>
         <p class="mt-6 max-w-2xl text-lg leading-relaxed">
-          Pizzaria is a small family kitchen with one simple belief: great pizza doesn't need to be complicated.
-          We make our dough fresh every morning, top every pie with generous servings of your favorite flavors,
-          and bake it in a wood-fired oven until the edges are crisp. That's it. That's the whole philosophy.
+          Pizzaria is a small family kitchen. We make our dough fresh every morning, top every pie with
+          generous servings, and bake it in a wood-fired oven until the edges are crisp.
         </p>
         <ul class="mt-8 grid gap-4 sm:grid-cols-3">
-          <li class="card-brutal"><strong class="block text-xl">Baked fresh</strong><span class="text-sm">Dough made every morning, never frozen.</span></li>
-          <li class="card-brutal"><strong class="block text-xl">Wood-fired</strong><span class="text-sm">900°F oven, 90-second bake. Crispy edges, soft center.</span></li>
-          <li class="card-brutal"><strong class="block text-xl">Made for sharing</strong><span class="text-sm">Sizes good for one, four, or the whole group.</span></li>
+          <li class="card-brutal">
+            <strong class="block text-xl">Baked fresh</strong>
+            <span class="text-sm">Dough made every morning, never frozen.</span>
+          </li>
+          <li class="card-brutal">
+            <strong class="block text-xl">Wood-fired</strong>
+            <span class="text-sm">900°F oven, 90-second bake. Crispy edges, soft center.</span>
+          </li>
+          <li class="card-brutal">
+            <strong class="block text-xl">Made for sharing</strong>
+            <span class="text-sm">Sizes good for one, four, or the whole group.</span>
+          </li>
         </ul>
       </div>
     </section>
 
+    <!-- SERVICES -->
     <section id="services" class="py-16 md:py-24">
       <div class="reveal mx-auto max-w-6xl px-4 md:px-8">
         <h2 class="font-display text-3xl font-black md:text-5xl">Our services</h2>
@@ -113,12 +137,13 @@
           <article class="card-brutal">
             <div class="text-5xl">🪑</div>
             <h3 class="mt-4 font-display text-2xl font-black">Dine-In</h3>
-            <p class="mt-2 text-sm">Cozy seating for groups of up to 20. Walk-ins welcome, reservations preferred.</p>
+            <p class="mt-2 text-sm">Cozy seating for up to 20 guests. Walk-ins welcome.</p>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- MENU -->
     <section id="menu" class="border-t-4 border-charcoal bg-white py-16 dark:border-cream dark:bg-charcoal md:py-24">
       <div class="reveal mx-auto max-w-6xl px-4 md:px-8">
         <h2 class="font-display text-3xl font-black md:text-5xl">Our menu</h2>
@@ -128,55 +153,62 @@
           <article class="card-brutal">
             <div class="text-5xl">🍍</div>
             <h3 class="mt-4 font-display text-2xl font-black">Hawaiian Pizza</h3>
-            <p class="mt-2 text-sm">Sweet pineapple chunks, ham, mozzarella, and a touch of tomato sauce.</p>
+            <p class="mt-2 text-sm">Pineapple, ham, mozzarella, and tomato sauce.</p>
             <p class="mt-4 font-bold text-tomato">₱199</p>
           </article>
           <article class="card-brutal">
             <div class="text-5xl">🧀</div>
             <h3 class="mt-4 font-display text-2xl font-black">Ham &amp; Cheese</h3>
-            <p class="mt-2 text-sm">Smoked ham, double mozzarella, cheddar, and tomato sauce.</p>
+            <p class="mt-2 text-sm">Smoked ham, mozzarella, cheddar, and tomato sauce.</p>
             <p class="mt-4 font-bold text-tomato">₱199</p>
           </article>
           <article class="card-brutal">
             <div class="text-5xl">🍕</div>
             <h3 class="mt-4 font-display text-2xl font-black">Pepperoni Pizza</h3>
-            <p class="mt-2 text-sm">Classic pepperoni, mozzarella, tomato sauce, and chili flakes on top.</p>
+            <p class="mt-2 text-sm">Pepperoni, mozzarella, tomato sauce, and chili flakes.</p>
             <p class="mt-4 font-bold text-tomato">₱199</p>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact" class="border-t-4 border-charcoal py-16 dark:border-cream md:py-24">
       <div class="reveal mx-auto max-w-3xl px-4 md:px-8">
         <h2 class="font-display text-3xl font-black md:text-5xl">Say hello</h2>
-        <p class="mt-4 text-lg">Book a table, place an order, or just tell us your favorite pizza.</p>
+        <p class="mt-4 text-lg">Book a table, place an order, or just say hi.</p>
 
         <form class="mt-8 space-y-5" novalidate>
           <div>
             <label for="name" class="mb-1 block text-sm font-bold">Name</label>
             <input
               id="name" name="name" type="text" required autocomplete="name"
-              class="w-full border-4 border-charcoal bg-white px-4 py-3 text-charcoal focus:outline-none focus:ring-4 focus:ring-basil dark:border-cream dark:bg-charcoal dark:text-cream"
               placeholder="Your name"
-            />
+              class="w-full border-4 border-charcoal bg-white px-4 py-3 text-charcoal
+                     focus:outline-none focus:ring-4 focus:ring-basil
+                     dark:border-cream dark:bg-charcoal dark:text-cream" />
           </div>
+
           <div>
             <label for="email" class="mb-1 block text-sm font-bold">Email</label>
             <input
               id="email" name="email" type="email" required autocomplete="email"
-              class="w-full border-4 border-charcoal bg-white px-4 py-3 text-charcoal focus:outline-none focus:ring-4 focus:ring-basil dark:border-cream dark:bg-charcoal dark:text-cream"
               placeholder="you@example.com"
-            />
+              class="w-full border-4 border-charcoal bg-white px-4 py-3 text-charcoal
+                     focus:outline-none focus:ring-4 focus:ring-basil
+                     dark:border-cream dark:bg-charcoal dark:text-cream" />
           </div>
+
           <div>
             <label for="message" class="mb-1 block text-sm font-bold">Message</label>
             <textarea
               id="message" name="message" rows="4" required
-              class="w-full border-4 border-charcoal bg-white px-4 py-3 text-charcoal focus:outline-none focus:ring-4 focus:ring-basil dark:border-cream dark:bg-charcoal dark:text-cream"
               placeholder="What's on your mind?"
-            ></textarea>
+              class="w-full border-4 border-charcoal bg-white px-4 py-3 text-charcoal
+                     focus:outline-none focus:ring-4 focus:ring-basil
+                     dark:border-cream dark:bg-charcoal dark:text-cream"></textarea>
           </div>
+
           <button type="submit" class="btn-brutal">Send message</button>
         </form>
       </div>
@@ -184,65 +216,69 @@
 
   </main>
 
+  <!-- FOOTER -->
   <footer class="border-t-4 border-charcoal bg-cream py-8 dark:border-cream dark:bg-charcoal">
     <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 md:flex-row md:px-8">
       <p class="text-sm">© 2026 Pizzaria. Made with flour, fire, and love.</p>
-      <p class="text-sm">Brgy.12 Hda.Naglo Victorias City· Open 11am–12mn</p>
+      <p class="text-sm">Brgy. 12, Hda. Naglo, Victorias City · Open 11am–12mn</p>
     </div>
   </footer>
 
+  <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
-    /* Dark mode toggle with localStorage persistence */
+    /* 1. Dark mode */
     const root = document.documentElement;
     const themeToggle = document.getElementById("theme-toggle");
 
-    const saved = localStorage.getItem("pizzaria-theme");
-    if (saved === "dark") root.classList.add("dark");
+    if (localStorage.getItem("pizzaria-theme") === "dark") {
+      root.classList.add("dark");
+    }
 
     themeToggle.addEventListener("click", () => {
       root.classList.toggle("dark");
       localStorage.setItem("pizzaria-theme", root.classList.contains("dark") ? "dark" : "light");
     });
 
+    /* 2. Page-load intro */
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    /* Page-load intro timeline */
     const intro = gsap.timeline({
-      defaults: { duration: 0.6, ease: "power3.out" }, // no opacity default — it leaks into .from() tweens
-      paused: prefersReduced
+      defaults: { duration: 0.6, ease: "power3.out" },
+      paused: prefersReduced,
     });
 
     intro
-      .fromTo(".hero-step", { opacity: 0, y: 20 }, {
-        opacity: 1, y: 0, stagger: 0.12,
-        ease: "power3.out" // smooth and welcoming — not bouncy
-      })
-      .fromTo("#hero h1", {
-        scale: 0.96, opacity: 1
-      }, {
-        scale: 1, opacity: 1, duration: 0.5, ease: "power2.out" // subtle punch, opacity pinned to 1
-      }, "-=0.4")
-      .fromTo("#hero a", {
-        opacity: 0, y: 10
-      }, {
-        opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.4)" // playful CTA pop
-      }, "<");
+      .fromTo(".hero-step",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, stagger: 0.12 },
+        "-=0.4"
+      )
+      .fromTo("#hero h1",
+        { scale: 0.96, opacity: 1 },
+        { scale: 1, opacity: 1, duration: 0.5, ease: "power2.out" },
+        "<"
+      )
+      .fromTo("#hero a",
+        { opacity: 0, y: 10 },
+        { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.4)" },
+        "<"
+      );
 
     if (prefersReduced) {
       gsap.set(".hero-step", { opacity: 1, y: 0 });
     }
 
-    /* Replay intro button */
+    /* 3. Replay button */
     document.getElementById("replay-intro").addEventListener("click", () => {
       intro.restart();
     });
 
-    /* Scroll reveals + scrub progress bar */
+    /* 4. Scroll reveals + progress bar */
     const revealItems = gsap.utils.toArray(".reveal");
     const mm = gsap.matchMedia();
 
@@ -256,8 +292,8 @@
           scrollTrigger: {
             trigger: el,
             start: "top 80%",
-            toggleActions: "play none none reverse"
-          }
+            toggleActions: "play none none reverse",
+          },
         });
       });
 
@@ -268,8 +304,8 @@
           trigger: document.body,
           start: "top top",
           end: "bottom bottom",
-          scrub: true
-        }
+          scrub: true,
+        },
       });
     });
 
@@ -278,5 +314,6 @@
       gsap.set("#scroll-progress", { scaleX: 0 });
     });
   </script>
+
 </body>
 </html>
